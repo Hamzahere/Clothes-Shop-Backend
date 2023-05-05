@@ -5,11 +5,30 @@ const itemRouter =require('./routers/item')
 const cartRouter = require('./routers/cart')
 const orderRouter = require('./routers/order')
 require('./db/mongoose')
+require('dotenv').config();
 
-const port = process.env.PORT
+const cors = require('cors');
+
+const allowedOrigins = ['http://localhost:4200', 'http://localhost:3000'];
+// const corsOptions = {
+//   origin: function (origin, callback) {
+//     if (allowedOrigins.indexOf(origin) !== -1) {
+//       callback(null, true)
+//     } else {
+//       callback(new Error('Not allowed by CORS'))
+//     }
+//   }
+// }
+
+const corsOptions = {
+  origin: '*'
+};
+
+const port = process.env.PORT;
 
 const app = express()
 
+app.use(cors(corsOptions));
 app.use(express.json())
 app.use(userRouter)
 app.use(itemRouter)

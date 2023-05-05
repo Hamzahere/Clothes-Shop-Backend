@@ -16,8 +16,8 @@ commenting that out till I find a fix for flutterwave public key required error
 
 //get orders
 
-router.get('/orders', Auth, async (req, res) => {
-    const owner = req.user._id;
+router.post('/orders', async (req, res) => {
+    const owner = req.body.owner;
     try {
         const order = await Order.find({ owner: owner }).sort({ date: -1 });
         if(order) {
@@ -28,6 +28,53 @@ router.get('/orders', Auth, async (req, res) => {
         res.status(500).send()
     }
 })
+
+
+//create an item
+// router.post('/order', async(req, res) => {
+//     try {
+//         const newOrder = new Order({
+//             ...req.body,
+           
+//         })
+//         await newOrder.save()
+//         res.status(201).send(newOrder)
+//     } catch (error) {
+//         console.log({error})
+//         res.status(400).send({message: "error"})
+//     }
+// })
+
+router.post('/checkout', (req, res, next) => {
+    if(req.body.owner != undefined || req.body.owner != null){
+        order = new Order({
+           owner: req.body.owner,
+           items: req.body.items,
+           total: req.body.total
+         });
+   }
+   else{
+
+        order = new Order({
+         items: req.body.items,
+         total: req.body.total
+       });
+   }
+    order.save()
+      .then(result => {
+        console.log(result);
+        res.status(201).json({
+          message: 'Order created successfully',
+          order: result
+        });
+      })
+      .catch(err => {
+        console.log(err);
+        res.status(500).json({
+          error: err
+        });
+      });
+  });
 
 //checkout
 router.post('/order/checkout', Auth, async(req, res) => {

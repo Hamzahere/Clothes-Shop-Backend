@@ -1,15 +1,34 @@
 const express = require('express')
 const Item = require('../models/item')
 const Auth = require('../middleware/auth')
+const Log = require('../middleware/logging')
 
 const router = new express.Router()
 
+//fetch single product
+router.get('/product', async (req, res) => {
+    //console.log('/product/:price');
+    const { id } = req.query;
+    try {
+      const product = await Item.findOne({ id });
+      if (!product) {
+        return res.status(404).json({ message: 'Product not found' });
+      }
+      res.json(product);
+    } catch (error) {
+      console.error(error.message);
+      res.status(500).json({ message: 'Server Error' });
+    }
+  });
+
+
+
 //fetch all items
-router.get('/items', Auth, async(req, res) => {
+router.get('/items', Log , async(req, res) => {
   
-    if(req.query.user == 1) {
+    if(true) {
         try {
-           const items = await Item.find({ owner: req.user._id})
+           const items = await Item.find({})
             res.status(200).send(items)
         } catch (error) {
             console.log(error)
@@ -23,19 +42,6 @@ router.get('/items', Auth, async(req, res) => {
         res.status(400).send(error)
     }
 }
-})
-
-//fetch an item
-router.get('/items/:id', Auth, async(req, res) => {
-    try{
-        const item = await Item.findOne({_id: req.params.id})
-        if(!item) {
-            res.status(404).send({error: "Item not found"})
-        }
-        res.status(200).send(item) 
-    } catch (error) {
-        res.status(400).send(error)
-    }
 })
 
 //create an item
@@ -52,6 +58,8 @@ router.post('/items',Auth, async(req, res) => {
         res.status(400).send({message: "error"})
     }
 })
+
+
 
 //update an item
 
