@@ -17,16 +17,12 @@
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project
-This is an ecommerce API  built with NodeJs. It features authentication, full CRUD ability on products, order, cart and user.
-Documentation here:
-https://documenter.getpostman.com/view/11784799/UVJhDEyt
+This is an e-commerce API for accessories shop  built with NodeJs. It features authentication, full CRUD ability on products, order, cart and user.
 
 ## Environmental variables
 JWT_SECRET<br />
 PORT=3000<br />
 MONGODB_URL<br />
-FLUTTERWAVE_V3_SECRET_KEY<br />
-FLUTTERWAVE_v3_PUBLIC_KEY<br />
 
 ### Built With
 * [NodeJs](http://nodejs.org)
@@ -68,10 +64,6 @@ FLUTTERWAVE_v3_PUBLIC_KEY<br />
 5. Test components
 ```npm test```
 
-<!-- ROADMAP -->
-## Roadmap
-
-See the [open issues](https://github.com/breellz/e-commerce-api/issues) for a list of proposed features (and known issues).
 
 <!-- CONTRIBUTING -->
 ## Contributing
@@ -84,19 +76,6 @@ Contributions are what make the open source community such an amazing place to b
 4. Push to the Branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
 
-<!-- CONTACT -->
-## Contact
-Twitter - [@breellz](https://twitter.com/breellz)
-
-[Facebook](https://fb.com/breellz)
-
-[stackoverflow](https://stackoverflow.com/users/13081082/breellz)
-
-[LinkedIn](https://linkedin.com/in/bassit-owolabi-55751b15a)
-
-[Instagram](https://instagram.com/breellzfit)
-
-Project Link: [https://github.com/breellz/e-commerce-api](https://github.com/breellz/e-commerce-api)
 
 <!-- ACKNOWLEDGEMENTS -->
 ## Acknowledgements
