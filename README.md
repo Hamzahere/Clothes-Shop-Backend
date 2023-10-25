@@ -2,19 +2,6 @@
 <p align="center">
   <h3 align="center">E commerce web api</h3>
 
-  <p align="center">
-    <br />
-    <a href="https://github.com/breellz/e-commerce-api"><strong>Explore the docs »</strong></a>
-    <br />
-    <br />
-    <a href="https://breellz-e-commerce.herokuapp.com/">View Demo</a>
-    ·
-    <a href="https://github.com/breellz/e-commerce-api/issues">Report Bug</a>
-    ·
-    <a href="https://github.com/breellz/e-commerce-api/issues">Request Feature</a>
-  </p>
-</p>
-
 <!-- TABLE OF CONTENTS -->
 ## Table of Contents
 
